@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --medora-teal: #0b7a7e;
+  --medora-navy: #0f2437;
+  --medora-mist: #f3f8f8;
+  --medora-border: #dce7e7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #0f2437;
+  -webkit-font-smoothing: antialiased;
+}
+
+*:focus-visible {
+  outline: 2px solid #0b7a7e;
+  outline-offset: 2px;
+}
+
+.medora-card {
+  @apply rounded-2xl border border-medora-border bg-white shadow-card;
+}
+
+.medora-btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-medora-teal px-5 py-3 text-sm font-semibold text-white transition hover:bg-medora-teal-dark disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+.medora-btn-outline {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl border border-medora-border bg-white px-5 py-3 text-sm font-semibold text-medora-navy transition hover:border-medora-teal/40 hover:bg-medora-mist disabled:cursor-not-allowed disabled:opacity-60;
+}

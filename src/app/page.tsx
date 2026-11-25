@@ -12,13 +12,15 @@ import {
   UserCheck,
   CreditCard,
   Lock,
+  FlaskConical,
+  Search,
 } from "lucide-react";
 import { MedoraIcon, MedoraLogo } from "@/components/MedoraLogo";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-medora-navy">
-      {/* Top Navigation matching Medora.fig */}
+      {/* Top Navigation */}
       <header className="sticky top-0 z-30 border-b border-medora-border/80 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <MedoraLogo href="/" />
@@ -33,12 +35,9 @@ export default function HomePage() {
             <a href="#healthcare-teams" className="transition hover:text-medora-navy">
               For healthcare teams
             </a>
-            <a href="#workspace-preview" className="transition hover:text-medora-navy">
-              Workspace preview
+            <a href="#medicine-directory" className="transition hover:text-medora-navy">
+              Medicine directory
             </a>
-            <Link href="/browse" className="transition hover:text-medora-navy">
-              Medicines &amp; Generics
-            </Link>
           </nav>
 
           <div className="flex items-center gap-3 sm:gap-5">
@@ -58,7 +57,7 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Hero Section matching Medora.fig */}
+      {/* Hero Section */}
       <section className="mx-auto max-w-7xl px-4 pb-12 pt-12 sm:px-6 lg:px-8 lg:pt-16">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           {/* Left Column */}
@@ -81,14 +80,16 @@ export default function HomePage() {
               review, and track prescriptions across participating hospitals and pharmacies.
             </p>
 
+            {/* Redesigned Hero CTAs (non-redundant with top bar auth links) */}
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <Link href="/auth/signin" className="medora-btn-primary px-6 py-3.5 text-sm">
-                <span>Patient sign in</span>
+              <Link href="/browse" className="medora-btn-primary px-6 py-3.5 text-sm">
+                <Search className="h-4 w-4" aria-hidden="true" />
+                <span>Explore medicines &amp; generics</span>
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <Link href="/auth/register" className="medora-btn-outline px-6 py-3.5 text-sm">
-                Create patient account
-              </Link>
+              <a href="#how-it-works" className="medora-btn-outline px-6 py-3.5 text-sm">
+                See how it works
+              </a>
             </div>
 
             <div className="mt-7 space-y-2.5 text-sm text-medora-slate">
@@ -98,7 +99,7 @@ export default function HomePage() {
                   href="/auth/register-staff"
                   className="inline-flex items-center gap-1 font-semibold text-medora-teal hover:underline"
                 >
-                  <span>Sign in or register</span>
+                  <span>Request verified staff access</span>
                   <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </Link>
               </p>
@@ -115,10 +116,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right Column: Orbital Connected Network Visual matching Medora.fig */}
+          {/* Right Column: Orbital Connected Network Visual */}
           <div className="lg:col-span-6">
             <div className="relative mx-auto aspect-[5/4] max-w-xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#EEF5F5] to-[#E6F1F1] p-6 shadow-inner sm:p-8">
-              {/* Concentric orbital circles */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute left-1/2 top-1/2 h-[82%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-medora-teal/15"
@@ -188,7 +188,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* 3-Column Trust Bar matching Medora.fig */}
+        {/* 3-Column Trust Bar */}
         <div className="mt-12 rounded-2xl border border-medora-border bg-[#FAFDFD] px-6 py-5 shadow-sm">
           <div className="grid gap-6 divide-y divide-medora-border md:grid-cols-3 md:divide-x md:divide-y-0">
             <div className="flex items-center gap-3.5 pt-2 md:justify-center md:pt-0">
@@ -222,7 +222,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 2: HOW IT WORKS matching Medora.fig */}
+      {/* Section 2: HOW IT WORKS */}
       <section id="how-it-works" className="border-t border-medora-border/70 bg-medora-mist py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
@@ -326,78 +326,124 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section 4: WORKSPACE PREVIEW */}
-      <section id="workspace-preview" className="border-t border-medora-border bg-medora-mist py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="medora-card overflow-hidden p-8 sm:p-10">
-            <div className="grid items-center gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-7">
-                <p className="text-xs font-bold uppercase tracking-widest text-medora-teal">
-                  WORKSPACE PREVIEW
-                </p>
-                <h2 className="mt-2 text-2xl font-extrabold text-medora-navy sm:text-3xl">
-                  Explore medicines, generics, or sign in to your role workspace
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-medora-slate">
-                  Every portal makes active hospital context, pharmacy verification, prescription
-                  lifecycle states, and sandbox payment status unmistakable.
-                </p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Link href="/browse" className="medora-btn-primary">
-                    Browse Medicines &amp; Generics
-                  </Link>
-                  <Link href="/auth/signin" className="medora-btn-outline">
-                    Open Workspace Sign In
-                  </Link>
-                  <Link href="/activate" className="medora-btn-outline">
-                    Activate Patient Account
-                  </Link>
-                </div>
-              </div>
-              <div className="space-y-3 rounded-2xl border border-medora-border bg-medora-mist p-5 lg:col-span-5">
-                <div className="flex items-center justify-between rounded-xl bg-white p-3.5 text-xs shadow-sm">
-                  <div>
-                    <p className="font-bold text-medora-navy">RX-2026-100001</p>
-                    <p className="text-medora-slate">Northstar General → Harbor Pharmacy</p>
-                  </div>
-                  <span className="rounded-full bg-emerald-50 px-2.5 py-1 font-semibold text-emerald-700">
-                    Confirmed
-                  </span>
-                </div>
-                <div className="flex items-center justify-between rounded-xl bg-white p-3.5 text-xs shadow-sm">
-                  <div>
-                    <p className="font-bold text-medora-navy">Security Architecture</p>
-                    <p className="text-medora-slate">PostgreSQL RLS · TOTP MFA · HMAC Webhooks</p>
-                  </div>
-                  <span className="rounded-full bg-medora-teal-soft px-2.5 py-1 font-semibold text-medora-teal">
-                    Enforced
-                  </span>
-                </div>
-                <div className="flex items-center justify-between rounded-xl bg-white p-3.5 text-xs shadow-sm">
-                  <div>
-                    <p className="font-bold text-medora-navy">Sandbox Payments</p>
-                    <p className="text-medora-slate">Stripe &amp; bKash Pilot Mode Only</p>
-                  </div>
-                  <span className="rounded-full bg-sky-50 px-2.5 py-1 font-semibold text-sky-700">
-                    Sandbox
-                  </span>
-                </div>
-              </div>
+      {/* Section 4: MEDICINE DIRECTORY (Redesigned cleanly, single Browse CTA) */}
+      <section
+        id="medicine-directory"
+        className="border-t border-medora-border bg-medora-mist py-20"
+      >
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="medora-card relative overflow-hidden bg-gradient-to-br from-white via-white to-medora-teal-soft/45 p-8 text-center sm:p-12">
+            <div className="inline-flex items-center gap-2 rounded-full bg-medora-teal-soft px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-medora-teal">
+              <FlaskConical className="h-3.5 w-3.5" aria-hidden="true" />
+              <span>MEDICINE DIRECTORY</span>
+            </div>
+
+            <h2 className="mx-auto mt-4 max-w-2xl text-2xl font-extrabold tracking-tight text-medora-navy sm:text-3xl">
+              Check medicines, generics, and pharmacy availability upfront
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-medora-slate sm:text-base">
+              Browse pharmacist-maintained branded medicines and active generic ingredients across
+              participating hospital pharmacies with transparent pricing and stock status.
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-medora-navy">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-medora-border bg-white px-3.5 py-1.5">
+                <Pill className="h-3.5 w-3.5 text-medora-teal" aria-hidden="true" />
+                Branded Medicines
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-medora-border bg-white px-3.5 py-1.5">
+                <FlaskConical className="h-3.5 w-3.5 text-medora-teal" aria-hidden="true" />
+                Active Generics
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-medora-border bg-white px-3.5 py-1.5">
+                <Building2 className="h-3.5 w-3.5 text-medora-teal" aria-hidden="true" />
+                Hospital-Verified Pharmacies
+              </span>
+            </div>
+
+            <div className="mt-8">
+              <Link href="/browse" className="medora-btn-primary px-7 py-3.5 text-sm">
+                <span>Browse Medicines &amp; Generics</span>
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-medora-border bg-white py-8">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 text-xs text-medora-slate sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <MedoraLogo href="/" />
-            <span>· Multi-Hospital Online Prescription Platform (Pilot Sandbox)</span>
+      <footer className="border-t border-medora-navy/10 bg-medora-navy text-slate-300">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-8 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <MedoraLogo href="/" inverted />
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-300">
+                Multi-hospital online prescription platform connecting patients, verified doctors,
+                and hospital pharmacies with tenant-isolated security.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-6 text-sm sm:grid-cols-2 md:col-span-7 md:justify-items-end">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-medora-teal-light">
+                  Platform
+                </p>
+                <ul className="mt-3 space-y-2 text-slate-300">
+                  <li>
+                    <a href="#how-it-works" className="transition hover:text-white">
+                      How it works
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#healthcare-teams" className="transition hover:text-white">
+                      For healthcare teams
+                    </a>
+                  </li>
+                  <li>
+                    <Link href="/browse" className="transition hover:text-white">
+                      Medicine directory
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-medora-teal-light">
+                  Access
+                </p>
+                <ul className="mt-3 space-y-2 text-slate-300">
+                  <li>
+                    <Link href="/auth/signin" className="transition hover:text-white">
+                      Patient sign in
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/auth/signin?portal=staff" className="transition hover:text-white">
+                      Staff access
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/activate" className="transition hover:text-white">
+                      Activate patient account
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <p>
-            No live payments processed in sandbox mode. Protected health access is audited and
-            tenant-isolated.
-          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
+            <p className="text-sm font-semibold text-white">
+              &copy; {new Date().getFullYear()} Medora Health Platform. All rights reserved.
+            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-medora-teal-light/30 bg-medora-teal/20 px-3.5 py-1 text-xs font-bold tracking-wide text-medora-teal-light">
+                Web Version 1.0
+              </span>
+              <span className="text-xs text-slate-400">
+                Pilot Sandbox · Tenant-Isolated &amp; Audited
+              </span>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

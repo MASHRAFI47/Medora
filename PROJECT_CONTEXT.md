@@ -61,7 +61,7 @@
 - Uploads, Notifications, Audit: `/api/uploads`, `/api/uploads/[id]`, `/api/notifications`, `/api/audit`
 
 ### Frontend Pages (`src/app/`)
-- `/` — Medora landing page faithfully implementing `Medora.fig`
+- `/` — Medora landing page (redesigned hero with Explore Medicines & Generics + How It Works CTAs, orbital hospital-pharmacy visual, and streamlined Medicine Directory section)
 - `/auth/signin`, `/auth/register`, `/auth/register-staff`, `/activate` — Full auth, TOTP MFA challenge, staff license registration, one-time patient activation
 - `/browse` — Medicines & Generics browsing with pharmacy context & availability filters
 - `/dashboard` — Server-side role router (blocks `PENDING_APPROVAL` staff cleanly)

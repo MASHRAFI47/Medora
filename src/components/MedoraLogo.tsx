@@ -28,11 +28,23 @@ export function MedoraIcon({ size = 34 }: { size?: number }) {
   );
 }
 
-export function MedoraLogo({ href = "/" }: { href?: string }) {
+export function MedoraLogo({
+  href = "/",
+  inverted = false,
+}: {
+  href?: string;
+  inverted?: boolean;
+}) {
   return (
     <Link href={href} className="inline-flex items-center gap-3 group">
       <MedoraIcon size={32} />
-      <span className="text-xl font-bold tracking-tight text-medora-navy group-hover:text-medora-teal transition-colors">
+      <span
+        className={`text-xl font-bold tracking-tight transition-colors ${
+          inverted
+            ? "text-white group-hover:text-medora-teal-light"
+            : "text-medora-navy group-hover:text-medora-teal"
+        }`}
+      >
         Medora
       </span>
     </Link>
